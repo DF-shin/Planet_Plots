@@ -1,2 +1,27 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_url('milky_way.jpg') %>);">
+  <div class="container">
+    <h1>Welcome to <strong>Planet Plots</strong></h1>
+    <p>Launch into the <strong>Interstellar</strong> property market </p>
+  </div>
+</div>
+
+<div class="page-bottom">
+  <div class="row">
+    <div class="col-6 col-lg-3">
+      <div class="page-info">
+        <h2>Where will be your <strong>New</strong></h2>
+        <ul>
+          <li>Vaction Home</li>
+          <li>Golf Course</li>
+          <li>Garden</li>
+          <li>Water Park</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-6 col-lg-9">
+      <div class="photo" style="background-image: url(<%= asset_path('planets')%>)">
+      These
+      </div>
+    </div>
+  </div>
+</div>
