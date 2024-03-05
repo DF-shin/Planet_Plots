@@ -2,11 +2,14 @@
   <h1>Plot Details</h1>
 
   <p><strong>Name:</strong> <%= @plot.name %></p>
-  <p><strong>Price:</strong> <%= @plot.price %></p>
-  <p><strong>Planet:</strong> <%= @plot.planet.name %></p>
-  <p><strong>Description:</strong> <%= @plot.description %></p>
-  <p><strong>Owner:</strong> <%= @plot.owner %></p>
+
 
   <%= link_to 'Edit', edit_plot_path(@plot) %> |
+
+  <p><strong>Planet:</strong> <%= @plot.planet.name %></p>
+  <p><strong>Description:</strong> <%= @plot.description %></p>
+  <p><strong>Price:</strong> <%= "$#{number_with_precision(@plot.price, precision: 2)}" %></p>
+  <p><strong>Owner:</strong> <%= "#{@plot.user.first_name} #{@plot.user.last_name}" %></p>
+
   <%= link_to 'Back', plots_path %>
 </div>

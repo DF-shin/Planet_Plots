@@ -13,6 +13,7 @@ class RequestsController < ApplicationController
     @user = current_user
     if @user
       @requests = @user.requests
+      @requests_as_owner = @user.requests_as_owner
     else
       redirect_to root_path
     end
