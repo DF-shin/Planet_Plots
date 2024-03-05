@@ -1,1 +1,28 @@
-// Specific CSS for your home-page
+.page-info {
+  color: rgb(218, 216, 216);
+  padding-top: 22px;
+  padding-left: 12px;
+  li{
+    text-align: center;
+    list-style-type: none;
+    padding: 10px;
+    font-size: larger;
+    font-weight: bold;
+
+  }
+
+  ul {
+    padding-left: 0px !important;
+  }
+}
+
+.photo {
+  background-size: cover;
+  background-position: center;
+  padding: 171px 0;
+  box-shadow: -5px 11px 20px 0px;
+}
+
+body {
+  overflow-x: hidden; /* Hide scrollbars */
+}
