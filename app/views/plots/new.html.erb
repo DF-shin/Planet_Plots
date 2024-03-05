@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create New Plot</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body {
+      background-color: #004422;
+      color: #00DDAA;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Create New Plot</h1>
+
+    <%= simple_form_for @plot do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description, as: :text %>
+      <%= f.button :submit, value: "Create Plot", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</body>
+</html>
