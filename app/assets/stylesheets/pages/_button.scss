@@ -1,0 +1,20 @@
+.btn-ghost {
+  color: #fdecec;
+
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 50%;
+  margin-left: 25%;
+
+
+  &:hover {
+    opacity: 1;
+    color: white;
+    background-color: rgba(254, 254, 254, 0.311);
+  }
+}
