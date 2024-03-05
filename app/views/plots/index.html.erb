@@ -9,16 +9,16 @@
 <div class="container d-flex">
   <div class="row justify-content-end">
     <% @plots.each do |plot| %>
-      <div class="col-4 col-lg-3" id="columns">
-        <div class="card-product ">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="col-6 col-md-4 col-lg-3" id="columns">
+        <div class="card-product my-4">
+          <img class="btn" href="/" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <div class="card-product-infos">
             <h2><%= plot.name %></h2>
             <h3><%= plot.planet.name %></h3>
             <p><%= plot.description %></p>
             <p><strong>Seller</strong>: <%= plot.user.last_name %></p>
-            <h5>Price:</h5>
-            <p>$<%= plot.price %></p>
+            <h5 class="mt-2">Price:</h5>
+            <p class="mt-0">$<%= plot.price %></p>
           </div>
         </div>
       </div>
