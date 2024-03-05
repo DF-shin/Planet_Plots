@@ -1,8 +1,21 @@
 <h1>This is the <%= @user.first_name %>'s requests list</h1>
-<ul>
-  <% @requests.each do |request| %>
-  <li>
-    Plot name: <%= request.plot.name %>  Buyer name: <%= request.plot.user.first_name %>
-  </li>
-  <% end %>
-</ul>
+<div class="mt-5 d-flex container justify-content-between">
+  <div class="requests-container border">
+    <% if @requests[0] == nil %>
+      <h2>You have no reqeust yet!</h2>
+    <% end %>
+    <h4>You want to buy:</h4>
+    <% @requests.each do |request| %>
+      <p>Plot_name: <%= request.plot.name %>..........Create_at: <%= request.created_at.to_date %></p>
+    <% end %>
+  </div>
+  <div class="requests-container border">
+    <% if @requests_as_owner[0] == nil %>
+      <h2>No one want to buy your plots yet!</h2>
+    <% end %>
+      <h4>Others want to buy yours:</h4>
+      <% @requests_as_owner.each do |request| %>
+        Plot_name: <%= request.plot.name %>...........Buyer_name: <%= request.user.first_name %>
+      <% end %>
+  </div>
+</div>
