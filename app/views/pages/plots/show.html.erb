@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Plot Details</h1>
+
+  <p><strong>Name:</strong> <%= @plot.name %></p>
+  <p><strong>Price:</strong> <%= @plot.price %></p>
+  <p><strong>Planet:</strong> <%= @plot.planet.name %></p>
+  <p><strong>Description:</strong> <%= @plot.description %></p>
+  <p><strong>Owner:</strong> <%= @plot.owner %></p>
+
+  <%= link_to 'Edit', edit_plot_path(@plot) %> |
+  <%= link_to 'Back', plots_path %>
+</div>
