@@ -7,3 +7,9 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+planets_name = %w[Mercury Venus Earth Mars Jupiter Saturn Uranus]
+planets_description = ["The swifted planet.", "Earth's superhead twin sister.", "Our homeland.", "The red planet.", "King of the planets.", "Jewel of the solar system.", "The original ice giant."]
+
+planets_name.each_with_index do |planet_name, index|
+  Planet.create!(name: planet_name, description: planets_description[index])
+end
