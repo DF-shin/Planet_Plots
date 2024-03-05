@@ -32,9 +32,12 @@
     <h1>Create New Plot</h1>
 
     <%= simple_form_for @plot do |f| %>
-      <%= f.input :name %>
-      <%= f.input :description, as: :text %>
-      <%= f.button :submit, value: "Create Plot", class: "btn btn-primary" %>
+      <%= f.input :name, label: 'Plot Name' %>
+      <%= f.input :description, as: :text, label: 'Description' %>
+
+      <%= f.input :planet_id, label: 'Planet', collection: Planet.all, label_method: :name, value_method: :id, include_blank: 'Type or select a planet', input_html: { class: 'select2-enable', data: { placeholder: 'Type or select a planet' } } %>
+
+      <%= f.button :submit, 'Create Plot', class: "btn btn-primary" %>
     <% end %>
   </div>
 </body>

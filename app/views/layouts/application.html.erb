@@ -7,7 +7,10 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%# <%= stylesheet_link_tag "select2-css", "data-turbo-track": "reload" %> <!-- Add this line for Select2 CSS --> %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.0-rc.1/dist/css/select2.min.css">
+    <%# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" /> %>
   </head>
 
   <body>
