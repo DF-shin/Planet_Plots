@@ -5,7 +5,11 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
-  width: 100px
+  width: 205px;
+
+  h5 {
+    margin-bottom: 0px;
+  }
 }
 
 .card-product img {
@@ -30,4 +34,10 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+#columns {
+  margin: 10px;
+  padding: 17px;
+  width: 25%;
 }
