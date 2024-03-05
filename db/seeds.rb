@@ -66,8 +66,8 @@ plots_name.each_with_index do |plot_name, index|
   Plot.find_or_create_by!(
     name: plot_name,
     description: plot_description,
-    price: rand(1000.00..10_000.00),
+    price: rand(1000.00..10_000.00).round(2),
     planet_id: planet.id,
-    user_id: user1.id # Assign the created user's ID here
+    user: User.all.sample # Assign the created user's ID here
   )
 end
