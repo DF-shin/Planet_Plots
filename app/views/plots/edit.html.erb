@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Create New Plot</title>
+  <title>Edit Plot</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -53,7 +53,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>Create New Plot</h1>
+    <h1>Edit Plot</h1>
 
     <%= form_for @plot, html: { class: 'plot-form' } do |f| %>
       <div class="form-group">
@@ -76,7 +76,7 @@
         <%= f.select :planet_id, Planet.all.map { |p| [p.name, p.id] }, { include_blank: 'Select a planet or type to add a new one' }, { id: 'plot_planet_id', class: 'select2-enable' } %>
       </div>
 
-      <%= f.submit 'Create Plot', class: "btn" %>
+      <%= f.submit 'Update Plot', class: "btn" %>
     <% end %>
   </div>
 
