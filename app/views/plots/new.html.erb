@@ -24,6 +24,19 @@
       text-align: center;
       margin-bottom: 30px;
     }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
     .btn {
       background-color: #0056b3;
       color: white;
@@ -31,6 +44,7 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      display: inline-block; /* Adjust as per layout needs */
     }
     .btn:hover {
       background-color: #004095;
@@ -41,18 +55,26 @@
   <div class="container">
     <h1>Create New Plot</h1>
 
-    <%= form_for @plot do |f| %>
-      <%= f.label :name, 'Plot Name' %>
-      <%= f.text_field :name %>
+    <%= form_for @plot, html: { class: 'plot-form' } do |f| %>
+      <div class="form-group">
+        <%= f.label :name, 'Plot Name' %>
+        <%= f.text_field :name %>
+      </div>
 
-      <%= f.label :description, 'Description' %>
-      <%= f.text_area :description %>
+      <div class="form-group">
+        <%= f.label :description, 'Description' %>
+        <%= f.text_area :description %>
+      </div>
 
-      <%= f.label :price, 'Price' %>
-      <%= f.number_field :price %>
+      <div class="form-group">
+        <%= f.label :price, 'Price' %>
+        <%= f.number_field :price %>
+      </div>
 
-      <%= f.label :planet_id, 'Planet' %>
-      <%= f.select :planet_id, Planet.all.map { |p| [p.name, p.id] }, { include_blank: 'Choose a Planet' }, { id: 'plot_planet_id' } %>
+      <div class="form-group">
+        <%= f.label :planet_id, 'Planet' %>
+        <%= f.select :planet_id, Planet.all.map { |p| [p.name, p.id] }, { include_blank: 'Select a planet or type to add a new one' }, { id: 'plot_planet_id', class: 'select2-enable' } %>
+      </div>
 
       <%= f.submit 'Create Plot', class: "btn" %>
     <% end %>
@@ -73,8 +95,7 @@
         }
       }).on("select2:select", function(e) {
         if(e.params.data.newOption){
-          // This code handles the selection of new option
-          // Here you might want to add additional logic
+          // New planet name added. You might handle it here.
           console.log("New planet name added:", e.params.data.text);
         }
       });
