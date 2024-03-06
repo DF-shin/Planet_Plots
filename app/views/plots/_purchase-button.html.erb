@@ -5,7 +5,7 @@
     <div class="alertboxbar"><a data-action="click->popup#display" class="closebutton">&times;</a>
     </div>
       <%= link_to "Confirm?", root_path %>
-      <button class="btn btn-success">help</button>
+      <%= render "requests/form-request", plot: plot, request: request %>
     </div>
 </div>
 </div>

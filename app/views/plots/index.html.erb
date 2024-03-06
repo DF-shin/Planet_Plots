@@ -9,10 +9,10 @@
 <div class="container d-flex">
   <div class="row justify-content-end">
     <% @plots.each do |plot| %>
-      <div class="col-6 col-md-4 col-lg-3" id="columns">
+      <div class="col-6 col-md-4 col-lg-3" id="columns" data-controller="insert-in-list">
         <div class="card-product my-4">
           <%= link_to image_tag("milky_way.jpg", :class => "btn-image"), plot_path(plot.id) %>
-          <div class="card-product-infos">
+          <div class="card-product-infos" data-insert-in-list-target="items">
             <h3><%= plot.planet.name %></h3>
             <h2><%= plot.name %></h2>
             <p><%= plot.description %></p>
@@ -22,7 +22,7 @@
                 <h5 class="mt-2">Price:</h5>
                 <p class="mt-0">$<%= plot.price %></p>
               </div>
-              <%= render "layouts/purchase-button" %>
+              <%= render "plots/purchase-button", plot: plot, request: @request %>
             </div>
           </div>
         </div>

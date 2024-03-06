@@ -4,9 +4,21 @@ class RequestsController < ApplicationController
   end
 
   def create
-    @request = Request.new(request_params)
-    @request.save
-    redirect_to requests_path
+    @request = Request.new
+    @request.status = "pending"
+    @request.plot_id = request_params[:plot_id]
+    @request.user = current_user
+
+    respond_to do |format|
+      if @request.save
+        format.html { redirect_to requests_path(@request) }
+        format.json
+      else
+        format.html { redirect_to requests_path, status: :unprocessable_entity }
+        format.json
+      end
+      redirect_to requests_path
+    end
   end
 
   def index
@@ -22,6 +34,6 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:status)
+    params.require(:request).permit(:plot_id)
   end
 end

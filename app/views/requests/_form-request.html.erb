@@ -1,0 +1,4 @@
+<%= simple_form_for request, data: {insert_in_list_target: "form", action: "submit->insert-in-list#send"} do |f| %>
+  <%= f.hidden_field :plot_id, value: plot.id%>
+  <%= f.button :submit %>
+<% end %>

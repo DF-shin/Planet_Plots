@@ -4,6 +4,7 @@ class PlotsController < ApplicationController
 
   def index
     @plots = Plot.all
+    @request = Request.new
   end
 
   def show
