@@ -1,0 +1,11 @@
+<div data-controller="popup" class="">
+  <button data-action="click->popup#display" class="btn-purchase">Purchase</button>
+  <div data-popup-target="dNone" class="d-none">
+  <div class="alertbox" id="alertbox">
+    <div class="alertboxbar"><a data-action="click->popup#display" class="closebutton">&times;</a>
+    </div>
+      <%= link_to "Confirm?", root_path %>
+      <%= render "requests/form-request", plot: plot, request: request %>
+    </div>
+</div>
+</div>

@@ -1,13 +1,15 @@
 class PlotsController < ApplicationController
-
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_plot, only: %i[show edit update]
 
+
   def index
     @plots = Plot.all
+    @request = Request.new
   end
 
   def show
+    @plot = Plot.find(params[:id])
   end
 
   def new
@@ -36,6 +38,7 @@ class PlotsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
 
   def search_planets
     if params[:term].present?
@@ -76,9 +79,6 @@ class PlotsController < ApplicationController
     redirect_to(root_url, alert: "Plot not found.") unless @plot
   end
 
-  # def plot_params
-  #   params.require(:plot).permit(:name, :description, :planet_id)
-  # end
   def plot_params
     params.require(:plot).permit(:name, :description, :price, :planet_id, :new_planet_name)
   end
