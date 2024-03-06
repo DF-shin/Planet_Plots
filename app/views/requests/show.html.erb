@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Request Details</h1>
+
+  <p><strong>Name:</strong> <%= @plot.name %></p>
+
+
+  <p><strong>Planet:</strong> <%= @plot.planet.name %></p>
+  <p><strong>Description:</strong> <%= @plot.description %></p>
+  <p><strong>Price:</strong> <%= "$#{number_with_precision(@plot.price, precision: 2)}" %></p>
+  <p><strong>Owner:</strong> <%= "#{@plot.user.first_name} #{@plot.user.last_name}" %></p>
+  <p><strong>Buyer:</strong> <%= "#{@request.user.first_name} #{@request.user.last_name}" %></p>
+  <p><strong>Request reated at:</strong> <%= @request.created_at.to_date %> <span class='fst-italic text-secondary'>(<%= @days %> days ago)</span></p>
+  <p><strong>Request status:</strong> <%= @request.status.nil? ? 'Pending...' : @request.status.capitalize %></p>
+
+  <%= link_to 'Back', requests_path %>
+  <% if @plot.user == current_user %>
+    <%= button_to 'Accept', {:status => 'accept'}, method: 'patch' %>
+    <%= button_to 'Refuse', {:status => 'refuse'}, method: 'patch' %>
+  <% end %>
+</div>

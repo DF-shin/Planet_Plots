@@ -4,7 +4,24 @@ class RequestsController < ApplicationController
   end
 
   def create
-    @request = Request.new(request_params)
+    @request = Request.new
+    @request.status = 'pending'
+    if @request.save
+      redirect_to request_path(@request)
+    else
+      redirect_to request_error_path
+    end
+  end
+
+  def show
+    @request = Request.find(params[:id])
+    @plot = @request.plot
+    @days = (Date.today - @request.created_at.to_date).to_i
+  end
+
+  def update
+    @request = Request.find(params[:id])
+    @request.status = params[:status]
     @request.save
     redirect_to requests_path
   end
@@ -22,6 +39,6 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:status)
+
   end
 end
