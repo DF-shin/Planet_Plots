@@ -1,5 +1,4 @@
 class PlotsController < ApplicationController
-
   skip_before_action :authenticate_user!, only: :index
   before_action :set_plot, only: %i[show new create]
 
@@ -8,6 +7,7 @@ class PlotsController < ApplicationController
   end
 
   def show
+    @plot = Plot.find(params[:id])
   end
 
   def new
@@ -22,10 +22,6 @@ class PlotsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def new
-    @plot = Plot.new
   end
 
   private

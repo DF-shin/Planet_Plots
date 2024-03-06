@@ -11,14 +11,19 @@
     <% @plots.each do |plot| %>
       <div class="col-6 col-md-4 col-lg-3" id="columns">
         <div class="card-product my-4">
-          <img class="btn" href="/" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <%= link_to image_tag("milky_way.jpg", :class => "btn-image"), plot_path(plot.id) %>
           <div class="card-product-infos">
-            <h2><%= plot.name %></h2>
             <h3><%= plot.planet.name %></h3>
+            <h2><%= plot.name %></h2>
             <p><%= plot.description %></p>
             <p><strong>Seller</strong>: <%= plot.user.last_name %></p>
-            <h5 class="mt-2">Price:</h5>
-            <p class="mt-0">$<%= plot.price %></p>
+            <div class="d-flex justify-content-between">
+              <div class="price">
+                <h5 class="mt-2">Price:</h5>
+                <p class="mt-0">$<%= plot.price %></p>
+              </div>
+              <%= render "layouts/purchase-button" %>
+            </div>
           </div>
         </div>
       </div>
