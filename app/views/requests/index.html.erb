@@ -1,21 +1,48 @@
 <h1>This is the <%= @user.first_name %>'s requests list</h1>
-<div class="mt-5 d-flex container justify-content-between">
-  <div class="requests-container border">
-    <% if @requests[0] == nil %>
-      <h2>You have no reqeust yet!</h2>
-    <% end %>
-    <h4>You want to buy:</h4>
-    <% @requests.each do |request| %>
-      <p>Plot_name: <%= request.plot.name %>..........Create_at: <%= request.created_at.to_date %></p>
-    <% end %>
-  </div>
-  <div class="requests-container border">
-    <% if @requests_as_owner[0] == nil %>
-      <h2>No one want to buy your plots yet!</h2>
-    <% end %>
-      <h4>Others want to buy yours:</h4>
-      <% @requests_as_owner.each do |request| %>
-        Plot_name: <%= request.plot.name %>...........Buyer_name: <%= request.user.first_name %>
-      <% end %>
+<div class="mt-5 container">
+  <div class="row">
+    <div class="col-6">
+      <div class="">
+        <% if @requests[0] == nil %>
+          <h2>You have no reqeust yet!</h2>
+        <% else %>
+          <h4 class="text-white bg-secondary p-2">You want to buy:</h4>
+          <% @requests.each do |request| %>
+            <div class="request-card d-flex p-2 m-3 border-bottom">
+              <%= link_to request_path(request) do %>
+                <%= image_tag "planets.jpg", width:"100" %>
+              <% end %>
+              <div class="ms-2">
+                <p class="text-primary"><strong><%= request.plot.name %></strong></p>
+                <p><%= request.plot.user.first_name %></p>
+                <p class="text-secondary little">Status: <%= request.status %></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="">
+        <% if @requests_as_owner[0] == nil %>
+          <h2>No one want to buy your plots yet!</h2>
+        <% else %>
+          <h4 class="text-white bg-secondary p-2">Others want to buy yours:</h4>
+          <% @requests_as_owner.each do |request| %>
+            <div class="request-card d-flex p-2 m-3 border-bottom">
+              <%= link_to request_path(request) do %>
+                <%= image_tag "planets.jpg", width:"100" %>
+              <% end %>
+              <div class="ms-2 flex-grow-1">
+                <p class="text-primary"><strong><%= request.plot.name %></strong></p>
+                <p><%= request.user.first_name %></p>
+                <p class="text-secondary little">Status: <%= request.status %></p>
+              </div>
+              <%= render 'buttons', request: request %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
