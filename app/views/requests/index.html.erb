@@ -33,11 +33,12 @@
               <%= link_to request_path(request) do %>
                 <%= image_tag "planets.jpg", width:"100" %>
               <% end %>
-              <div class="ms-2">
+              <div class="ms-2 flex-grow-1">
                 <p class="text-primary"><strong><%= request.plot.name %></strong></p>
                 <p><%= request.user.first_name %></p>
                 <p class="text-secondary little">Status: <%= request.status %></p>
               </div>
+              <%= render 'buttons', request: request %>
             </div>
           <% end %>
         <% end %>
