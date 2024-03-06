@@ -6,7 +6,7 @@
         <% if @requests[0] == nil %>
           <h2>You have no reqeust yet!</h2>
         <% else %>
-          <h4>You want to buy:</h4>
+          <h4 class="text-white bg-secondary p-2">You want to buy:</h4>
           <% @requests.each do |request| %>
             <div class="request-card d-flex p-2 m-3 border-bottom">
               <%= link_to request_path(request) do %>
@@ -15,7 +15,7 @@
               <div class="ms-2">
                 <p class="text-primary"><strong><%= request.plot.name %></strong></p>
                 <p><%= request.plot.user.first_name %></p>
-                <p class="text-secondary little">Create_at: <%= request.created_at.to_date %></p>
+                <p class="text-secondary little">Status: <%= request.status %></p>
               </div>
             </div>
           <% end %>
@@ -27,7 +27,7 @@
         <% if @requests_as_owner[0] == nil %>
           <h2>No one want to buy your plots yet!</h2>
         <% else %>
-          <h4>Others want to buy yours:</h4>
+          <h4 class="text-white bg-secondary p-2">Others want to buy yours:</h4>
           <% @requests_as_owner.each do |request| %>
             <div class="request-card d-flex p-2 m-3 border-bottom">
               <%= link_to request_path(request) do %>
@@ -36,7 +36,7 @@
               <div class="ms-2">
                 <p class="text-primary"><strong><%= request.plot.name %></strong></p>
                 <p><%= request.user.first_name %></p>
-                <p class="text-secondary little">Create_at: <%= request.created_at.to_date %></p>
+                <p class="text-secondary little">Status: <%= request.status %></p>
               </div>
             </div>
           <% end %>

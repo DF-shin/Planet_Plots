@@ -20,7 +20,10 @@ class RequestsController < ApplicationController
   end
 
   def update
-    raise
+    @request = Request.find(params[:id])
+    @request.status = params[:status]
+    @request.save
+    redirect_to requests_path
   end
 
   def index

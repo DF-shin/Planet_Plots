@@ -10,9 +10,11 @@
   <p><strong>Owner:</strong> <%= "#{@plot.user.first_name} #{@plot.user.last_name}" %></p>
   <p><strong>Buyer:</strong> <%= "#{@request.user.first_name} #{@request.user.last_name}" %></p>
   <p><strong>Request reated at:</strong> <%= @request.created_at.to_date %> <span class='fst-italic text-secondary'>(<%= @days %> days ago)</span></p>
-  <p><strong>Request status:</strong> <%= @request.status.nil? ? 'Pending...' : @request.status %></p>
+  <p><strong>Request status:</strong> <%= @request.status.nil? ? 'Pending...' : @request.status.capitalize %></p>
 
   <%= link_to 'Back', requests_path %>
-  <%= button_to 'Accept', request_path(@request), method: :put %>
-  <%= button_to 'Refuse', request_path(@request), method: 'patch' %>
+  <% if @plot.user == current_user %>
+    <%= button_to 'Accept', {:status => 'accept'}, method: 'patch' %>
+    <%= button_to 'Refuse', {:status => 'refuse'}, method: 'patch' %>
+  <% end %>
 </div>
