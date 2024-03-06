@@ -1,0 +1,25 @@
+<div class="banner-index" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('planets.jpg') %>);">
+  <div class="container">
+    <h1>Welcome to <strong>Planet Plots</strong></h1>
+    <p>Launch into the <strong>Interstellar</strong> property market </p>
+  </div>
+</div>
+
+
+<div class="container d-flex">
+  <div class="row">
+    <% @plots.each do |plot| %>
+      <div class="col-4 col-lg-6">
+        <div class="card-product ">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <h2><%= plot.name %></h2>
+            <h3><%= plot.planet.name %></h3>
+            <p><%= plot.description %></p>
+            <p>Seller: <%= plot.user.last_name %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
