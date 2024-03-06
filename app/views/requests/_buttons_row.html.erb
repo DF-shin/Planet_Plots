@@ -1,0 +1,4 @@
+<div class="d-flex">
+  <%= button_to 'Accept', request_path(request), method: :patch, params:{ :status => 'accept'}, class: 'btn btn-outline-success btn-sm mx-3' %>
+  <%= button_to 'Refuse', request_path(request), method: :patch, params:{ :status => 'refuse'}, class: 'btn btn-outline-danger btn-sm mx-3' %>
+</div>
