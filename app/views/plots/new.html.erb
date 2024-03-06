@@ -3,27 +3,37 @@
 <head>
   <title>Create New Plot</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <style>
     body {
       background-color: #004422;
       color: #00DDAA;
       font-family: Arial, sans-serif;
     }
-
     .container {
       max-width: 800px;
       margin: 0 auto;
       padding: 20px;
+      background-color: #fff;
       margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-
     h1 {
       text-align: center;
       margin-bottom: 30px;
     }
-
     .btn {
       background-color: #0056b3;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #004095;
     }
   </style>
 </head>
@@ -31,14 +41,44 @@
   <div class="container">
     <h1>Create New Plot</h1>
 
-    <%= simple_form_for @plot do |f| %>
-      <%= f.input :name, label: 'Plot Name' %>
-      <%= f.input :description, as: :text, label: 'Description' %>
+    <%= form_for @plot do |f| %>
+      <%= f.label :name, 'Plot Name' %>
+      <%= f.text_field :name %>
 
-      <%= f.input :planet_id, label: 'Planet', collection: Planet.all, label_method: :name, value_method: :id, include_blank: 'Type or select a planet', input_html: { class: 'select2-enable', data: { placeholder: 'Type or select a planet' } } %>
+      <%= f.label :description, 'Description' %>
+      <%= f.text_area :description %>
 
-      <%= f.button :submit, 'Create Plot', class: "btn btn-primary" %>
+      <%= f.label :price, 'Price' %>
+      <%= f.number_field :price %>
+
+      <%= f.label :planet_id, 'Planet' %>
+      <%= f.select :planet_id, Planet.all.map { |p| [p.name, p.id] }, { include_blank: 'Choose a Planet' }, { id: 'plot_planet_id' } %>
+
+      <%= f.submit 'Create Plot', class: "btn" %>
     <% end %>
   </div>
+
+  <script>
+    $(document).ready(function() {
+      $('#plot_planet_id').select2({
+        tags: true,
+        tokenSeparators: [',', ' '],
+        createTag: function (params) {
+          // Use the input to create a new option
+          return {
+            id: params.term,
+            text: params.term,
+            newOption: true
+          };
+        }
+      }).on("select2:select", function(e) {
+        if(e.params.data.newOption){
+          // This code handles the selection of new option
+          // Here you might want to add additional logic
+          console.log("New planet name added:", e.params.data.text);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
