@@ -14,7 +14,6 @@
 
   <%= link_to 'Back', requests_path %>
   <% if @plot.user == current_user %>
-    <%= button_to 'Accept', {:status => 'accept'}, method: 'patch' %>
-    <%= button_to 'Refuse', {:status => 'refuse'}, method: 'patch' %>
+    <%= render 'buttons', request: @request %>
   <% end %>
 </div>
