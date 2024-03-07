@@ -9,18 +9,29 @@
 <div class="container mt-4">
   <div class="cards-container">
     <% @plots.each do |plot| %>
-      <div class="card-product my-4">
-        <% if plot.photo.attached? %>
-          <%= link_to image_tag(url_for(plot.photo), class: "card-img-top"), plot_path(plot) %>
-        <% else %>
-          <%= link_to image_tag('galaxy.jpg', class: "card-img-top"), plot_path(plot) %>
-        <% end %>
-        <div class="card-product-infos">
-          <h2 class="text-primary"><%= plot.name %></h2>
-          <p class="fst-italic"><%= plot.planet.name %></p>
-          <p><%= plot.description %></p>
-          <p><strong>Seller:</strong> <%= plot.user.last_name %></p>
-          <%= render "plots/purchase-button", plot: plot, request: @request %>
+      <div class="col-6 col-md-4 col-lg-3" id="columns" data-controller="insert-in-list">
+        <div class="card-product my-4">
+          <% if plot.photo.attached? %>
+            <%= link_to cl_image_tag(plot.photo.key, height:120, :class => "btn-image"), plot_path(plot.id) %>
+          <% else %>
+            <%= link_to image_tag('galaxy.jpg', height:120, :class => "btn-image"), plot_path(plot.id) %>
+          <% end %>
+          <div class="card-product-infos" data-insert-in-list-target="items">
+            <p class="text-primary fs-3 fw-bold m-0 opacity-100"><%= plot.name %></p>
+            <p class="fst-italic fs-5 fw-normal m-0"><%= plot.planet.name %></p>
+            <p><%= plot.description %></p>
+            <p><strong>Seller</strong>: <%= plot.user.last_name %></p>
+            <div class="d-flex justify-content-between">
+              <div class="price">
+                <h5 class="mt-2">Price:</h5>
+                <p class="mt-0">$<%= plot.price %></p>
+              </div>
+              <% if current_user %>
+                <%= render "plots/purchase-button", plot: plot, request: @request %>
+              <% end %>
+            </div>
+          </div>
+
         </div>
       </div>
     <% end %>
@@ -29,4 +40,8 @@
     <div class="card-product invisible-card"></div>
     <div class="card-product invisible-card"></div>
   </div>
+</div>
+
+<div class="alert alert-success js-alert" style="opacity: 0; display: none;" role="alert">
+   <strong>Plot Accuired</strong>
 </div>
