@@ -91,3 +91,20 @@ document.addEventListener("turbolinks:load", function() {
     }
   });
 });
+
+const buyBtn = document.querySelectorAll(".sub-btn");
+const alert = document.querySelector(".js-alert")
+
+buyBtn.forEach(btn => {
+  btn.addEventListener("click", () => {
+    console.log(alert);
+
+    alert.removeAttribute("style")
+
+    window.setTimeout(function() {
+      $(".alert").fadeTo(1000, 0).slideUp(1000, function(){
+
+      });
+  }, 5000);
+      })
+});

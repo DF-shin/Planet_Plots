@@ -26,11 +26,17 @@
                 <h5 class="mt-2">Price:</h5>
                 <p class="mt-0">$<%= plot.price %></p>
               </div>
-              <%= render "plots/purchase-button", plot: plot, request: @request %>
+              <% if current_user %>
+                <%= render "plots/purchase-button", plot: plot, request: @request %>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
     <% end %>
   </div>
+</div>
+
+<div class="alert alert-success js-alert" style="opacity: 0; display: none;" role="alert">
+   <strong>Plot Accuired</strong>
 </div>

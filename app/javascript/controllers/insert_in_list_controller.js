@@ -20,7 +20,6 @@ static targets = ["items", "form", "dNone"]
       body: new FormData(this.formTarget)
     })
     .then((response) => {
-      console.log(response)
       if (response.status === 204) {
         this.display()
       }
