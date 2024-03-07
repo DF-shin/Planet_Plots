@@ -1,6 +1,12 @@
+// .navbar-lewagon {
+//   justify-content: space-between;
+//   background: white;
+// }
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background-image: url('/assets/NavBar.png'); /* Adjust path as needed */
+  background-size: cover; /* Ensures the background covers the navbar */
+  background-position: center; /* Centers the background image */
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +15,44 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-logo {
+  height: auto !important;
+  width: 100px !important; /* Adjust this value as needed */
+  border-radius: 10px !important;
+  margin-left: 60px;
+}
+
+/* Targets the links in the navbar */
+.navbar-lewagon .nav-link,
+.navbar-lewagon .navbar-brand,
+.navbar-lewagon .dropdown-item {
+  color: white !important; /* Ensures that the text color is white */
+}
+
+/* Changes the navbar toggler icon color */
+.navbar-lewagon .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-lewagon .dropdown-menu {
+  background-color: #0D1E2C; /* Dark blue color */
+}
+
+/* Login Button Styles */
+.navbar-light .navbar-nav .nav-item .nav-link.login-button {
+  background-color: #66acc2; /* Adjusted color */
+  color: white !important;
+  padding: 13px 50px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-right: 60px;
+  // font-weight: bold;
+}
+
+.navbar-lewagon .login-button:hover, .navbar-lewagon .login-button:focus {
+  background-color: #66acc2; /* Darker shade for hover/focus */
+  color: white !important;
+  text-decoration: none; /* Removes underline on hover/focus */
 }
