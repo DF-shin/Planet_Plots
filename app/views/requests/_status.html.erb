@@ -1,7 +1,7 @@
 <% if request.status == 'accept' %>
-  <p class="text-success little">Status: <%= request.status %></p>
+  <p class="text-success little">Accepted!</p>
 <% elsif request.status == 'refuse' %>
-  <p class="text-danger little">Status: <%= request.status %></p>
+  <p class="text-danger little">Refused.</p>
 <% else %>
-  <p class="text-secondary little">Status: <%= request.status %></p>
+  <p class="text-secondary little"><%= request.status.capitalize %>...</p>
 <% end %>
