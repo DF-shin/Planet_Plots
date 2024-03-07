@@ -1,45 +1,99 @@
-.card-product {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+/* Reset default browser padding and margin */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Global settings */
+$container-max-width: 1200px;
+$card-gap: 20px;
+$container-padding: 15px;
+
+/* Remaining SCSS */
+/* Banner styling */
+.banner-index {
+  background-size: cover;
+  color: white;
+  padding: 50px 0;
+  .container {
+    text-align: center;
+  }
+}
+
+/* My Plots Banner */
+.my-plots-banner {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+              url('galax.jpg') no-repeat center center;
+  background-size: cover; /* Adjust as needed */
+  background-position: center; /* Adjust as needed */
+}
+
+/* Index Banner */
+.index-banner {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), asset-url('planets.jpg') no-repeat center center;
+}
+
+/* Ensure any global styles or resets are applied */
+* {
+  box-sizing: border-box;
+}
+
+/* Container styling */
+.container {
   display: flex;
   flex-direction: column;
-  width: 205px;
-
-  h5 {
-    margin-bottom: 0px;
-  }
-
-  h3 {
-    font-size: 20px;
-  }
+  align-items: center;
+  max-width: $container-max-width;
+  margin: auto;
+  padding: 0 $container-padding;
 }
 
-.card-product img {
+/* Cards container */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Adjusts to space items evenly */
+  gap: $card-gap;
   width: 100%;
-  object-fit: cover;
 }
 
-.card-product h2 {
-  font-size: 25px;
-  font-weight: bold;
+/* Individual Cards */
+.card-product {
+  flex: 0 1 250px; // Fixed flex-basis, allowing shrinking but not growth beyond 220px
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: $card-gap;
+  &:hover {
+    transform: scale(1.05);
+  }
+  .card-img-top {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  .card-product-infos {
+    padding: 16px;
+  }
+}
+
+/* Invisible Cards */
+.invisible-card {
+  visibility: hidden;
+  height: 0;
   margin: 0;
+  border: none;
+  box-shadow: none;
 }
 
-.card-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
+/* Responsive Adjustments */
+@media only screen and (max-width: 768px) {
+  .card-product {
+    flex: 0 1 calc(50% - #{$card-gap});
+  }
 }
 
-.card-product .card-product-infos {
-  padding: 16px;
-}
-
-#columns {
-  // margin: 10px;
-  // padding: 17px;
-  // width: 25%;
+@media only screen and (max-width: 480px) {
+  .card-product {
+    flex: 0 1 100%;
+  }
 }
