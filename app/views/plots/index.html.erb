@@ -12,7 +12,7 @@
       <div class="col-6 col-md-4 col-lg-3" id="columns" data-controller="insert-in-list">
         <div class="card-product my-4">
           <% if plot.photo.attached? %>
-            <%= link_to cl_image_tag(plot.photo.key, height:120, :class => "btn-image"), plot_path(plot.id) %>
+            <%= link_to cl_image_tag(plot.photo.key, height:120, :class => "card-img-top"), plot_path(plot.id) %>
           <% else %>
             <%= link_to image_tag('galaxy.jpg', height:120, :class => "btn-image"), plot_path(plot.id) %>
           <% end %>
