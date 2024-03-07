@@ -2,14 +2,14 @@ class PlotsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_plot, only: %i[show edit update]
 
-
   def index
-    @plots = Plot.all
+    @plots = Plot.where.not(user_id: current_user)
     @request = Request.new
   end
 
   def show
     @plot = Plot.find(params[:id])
+    @request = Request.new
   end
 
   def new
