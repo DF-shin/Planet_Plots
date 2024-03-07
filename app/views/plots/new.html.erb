@@ -72,6 +72,11 @@
       </div>
 
       <div class="form-group">
+        <%= f.label :photo %>
+        <%= f.file_field :photo%>
+      </div>
+
+      <div class="form-group">
         <%= f.label :planet_id, 'Planet' %>
         <%= f.select :planet_id, Planet.all.map { |p| [p.name, p.id] }, { include_blank: 'Select a planet or type to add a new one' }, { id: 'plot_planet_id', class: 'select2-enable' } %>
       </div>
