@@ -10,7 +10,11 @@
           <% @requests.each do |request| %>
             <div class="request-card d-flex p-2 m-3 border-bottom">
               <%= link_to request_path(request) do %>
-                <%= cl_image_tag(request.plot.photo.key, width:"100", height:80) %>
+                <% if request.plot.photo.attached? %>
+                  <%= cl_image_tag(request.plot.photo.key, width:"100", height:80) %>
+                <% else %>
+                  <%= image_tag('galaxy.jpg', width:"100", height:80) %>
+                <% end %>
               <% end %>
               <div class="ms-2 flex-grow-1">
                 <p class="text-primary"><strong><%= request.plot.name %></strong></p>
@@ -36,7 +40,11 @@
           <% @requests_as_owner.each do |request| %>
             <div class="request-card d-flex p-2 m-3 border-bottom">
               <%= link_to request_path(request) do %>
-                <%= cl_image_tag request.plot.photo.key, width:"100", height:80 %>
+                <% if request.plot.photo.attached? %>
+                  <%= cl_image_tag(request.plot.photo.key, width:"100", height:80) %>
+                <% else %>
+                  <%= image_tag('galaxy.jpg', width:"100", height:80) %>
+                <% end %>
               <% end %>
               <div class="ms-2 flex-grow-1">
                 <p class="text-primary"><strong><%= request.plot.name %></strong></p>
