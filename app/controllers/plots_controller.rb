@@ -80,6 +80,6 @@ class PlotsController < ApplicationController
   end
 
   def plot_params
-    params.require(:plot).permit(:name, :description, :price, :planet_id, :new_planet_name)
+    params.require(:plot).permit(:name, :description, :price, :planet_id, :new_planet_name, :photo)
   end
 end
