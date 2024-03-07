@@ -15,7 +15,7 @@
               <div class="ms-2">
                 <p class="text-primary"><strong><%= request.plot.name %></strong></p>
                 <p><%= request.plot.user.first_name %></p>
-                <p class="text-secondary little">Status: <%= request.status %></p>
+                <%= render 'status', request: request %>
               </div>
             </div>
           <% end %>
@@ -36,9 +36,11 @@
               <div class="ms-2 flex-grow-1">
                 <p class="text-primary"><strong><%= request.plot.name %></strong></p>
                 <p><%= request.user.first_name %></p>
-                <p class="text-secondary little">Status: <%= request.status %></p>
+                <%= render 'status', request: request %>
               </div>
-              <%= render 'buttons_column', request: request %>
+              <% if request.status == 'pending' %>
+                <%= render 'buttons_column', request: request %>
+              <% end %>
             </div>
           <% end %>
         <% end %>

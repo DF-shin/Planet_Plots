@@ -1,7 +1,7 @@
 <div class="container">
   <div class='d-flex align-items-center my-3'>
     <h1 class="flex-grow-1">Request Details</h1>
-    <% if @plot.user == current_user %>
+    <% if @plot.user == current_user && @request.status == 'pending' %>
       <%= render 'buttons_row', request: @request %>
     <% end %>
   </div>
