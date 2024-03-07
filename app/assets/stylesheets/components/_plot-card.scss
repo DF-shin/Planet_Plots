@@ -1,6 +1,5 @@
 .card-product {
   overflow: hidden;
-
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -10,6 +9,10 @@
   h5 {
     margin-bottom: 0px;
   }
+
+  h3 {
+    font-size: 20px;
+  }
 }
 
 .card-product img {
@@ -18,7 +21,7 @@
 }
 
 .card-product h2 {
-  font-size: 16px;
+  font-size: 25px;
   font-weight: bold;
   margin: 0;
 }

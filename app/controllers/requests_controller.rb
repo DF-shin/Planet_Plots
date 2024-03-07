@@ -18,7 +18,6 @@ class RequestsController < ApplicationController
         format.html { redirect_to requests_path, status: :unprocessable_entity }
         format.json
       end
-      redirect_to requests_path
     end
   end
 
