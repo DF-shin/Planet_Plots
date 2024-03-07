@@ -4,4 +4,5 @@ class Plot < ApplicationRecord
   belongs_to :user
   belongs_to :planet
   has_many :requests
+  has_one_attached :photo
 end
