@@ -2,9 +2,13 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="insert-in-list"
 export default class extends Controller {
-static targets = ["items", "form"]
+static targets = ["items", "form", "dNone"]
 
   connect() {
+  }
+
+  display() {
+    this.dNoneTarget.classList.toggle("d-none");
   }
 
   send(event){
@@ -15,8 +19,11 @@ static targets = ["items", "form"]
       headers: { "Accept": "application/json" },
       body: new FormData(this.formTarget)
     })
-    .then(response => response.json())
-    .then((data) => {
+    .then((response) => {
+      console.log(response)
+      if (response.status === 204) {
+        this.display()
+      }
     })
 
   }

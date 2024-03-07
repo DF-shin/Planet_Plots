@@ -1,11 +1,11 @@
-<div data-controller="popup" class="">
-  <button data-action="click->popup#display" class="btn-purchase">Purchase</button>
-  <div data-popup-target="dNone" class="d-none">
-    <div class="alertbox" id="alertbox">
-      <div class="d-flex alertboxinfo">
-          <%= render "requests/form-request", plot: plot, request: request  %>
-          <button data-action="click->popup#display" class="decline">Close Purchase</button>
-      </div>
+
+  <button data-action="click->insert-in-list#display" class="btn-purchase">Purchase</button>
+  <div data-insert-in-list-target="dNone" class="d-none">
+  <div class="alertbox" id="alertbox">
+
+    <div class="d-flex alertboxinfo">
+        <%= render "requests/form-request", plot: plot, request: request  %>
+        <button data-action="click->insert-in-list#display" class="decline">Close Purchase</button>
     </div>
-  </div>
+    </div>
 </div>

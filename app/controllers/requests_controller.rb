@@ -13,7 +13,8 @@ class RequestsController < ApplicationController
     respond_to do |format|
       if @request.save
         format.html { redirect_to requests_path(@request) }
-        format.json
+        format.json { render nothing: true, status: 204 and return }
+
       else
         format.html { redirect_to requests_path, status: :unprocessable_entity }
         format.json
