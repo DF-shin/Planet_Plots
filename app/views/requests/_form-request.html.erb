@@ -1,6 +1,6 @@
 <div data-controller="popup">
-  <%= simple_form_for request, data: {insert_in_list_target: "form", action: "submit->insert-in-list#send"} do |f| %>
+  <%= simple_form_for request, data: {insert_in_list_target: "form", action: "submit->insert-in-list#send", action: "click->popup#display"} do |f| %>
     <%= f.hidden_field :plot_id, value: plot.id%>
-    <%= f.button :submit, "Buy Plot", class: "sub-btn" %>
+    <%= f.button :submit, "Buy Plot", class: "sub-btn"%>
   <% end %>
 </div>

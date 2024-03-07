@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 
   resources :plots, only: %i[show new create index edit update]
 
-  resources :requests, only: %i[index new create show update]
+  resources :requests, only: %i[index new create show update destroy]
   get 'request_error', to: 'requests#error'
 end
