@@ -1,9 +1,11 @@
 <div class="container">
-  <h1>Request Details</h1>
-
+  <div class='d-flex align-items-center my-3'>
+    <h1 class="flex-grow-1">Request Details</h1>
+    <% if @plot.user == current_user && @request.status == 'pending' %>
+      <%= render 'buttons_row', request: @request %>
+    <% end %>
+  </div>
   <p><strong>Name:</strong> <%= @plot.name %></p>
-
-
   <p><strong>Planet:</strong> <%= @plot.planet.name %></p>
   <p><strong>Description:</strong> <%= @plot.description %></p>
   <p><strong>Price:</strong> <%= "$#{number_with_precision(@plot.price, precision: 2)}" %></p>
@@ -13,7 +15,5 @@
   <p><strong>Request status:</strong> <%= @request.status.nil? ? 'Pending...' : @request.status.capitalize %></p>
 
   <%= link_to 'Back', requests_path %>
-  <% if @plot.user == current_user %>
-    <%= render 'buttons', request: @request %>
-  <% end %>
+
 </div>

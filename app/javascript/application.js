@@ -6,6 +6,8 @@ import "@popperjs/core"
 import "bootstrap"
 import $ from "jquery"
 import "select2"
+import Swal from "sweetalert2"
+window.Swal = Swal
 
 // document.addEventListener("turbo:load", function() {
 //   $('.select2-enable').select2({

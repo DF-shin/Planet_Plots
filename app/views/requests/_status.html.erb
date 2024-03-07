@@ -1,0 +1,7 @@
+<% if request.status == 'accept' %>
+  <p class="text-success little">Status: <%= request.status %></p>
+<% elsif request.status == 'refuse' %>
+  <p class="text-danger little">Status: <%= request.status %></p>
+<% else %>
+  <p class="text-secondary little">Status: <%= request.status %></p>
+<% end %>
