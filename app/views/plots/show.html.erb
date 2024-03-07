@@ -1,12 +1,14 @@
 <div class="container">
   <h1>Plot Details</h1>
-
-  <p><strong>Name:</strong> <%= @plot.name %></p>
-  <p><strong>Planet:</strong> <%= @plot.planet.name %></p>
-  <p><strong>Description:</strong> <%= @plot.description %></p>
-  <p><strong>Price:</strong> <%= "$#{number_with_precision(@plot.price, precision: 2)}" %></p>
-  <p><strong>Owner:</strong> <%= "#{@plot.user.first_name} #{@plot.user.last_name}" %></p>
-
+  <div class="plot-show-card d-flex align-items-center my-2" style="background-image: url('<%= cl_image_path @plot.photo.key%>')">
+    <div class="py-5 text-white flex-grow-1 ps-2" id="plot-show">
+        <p><strong>Name:</strong> <%= @plot.name %></p>
+        <p><strong>Planet:</strong> <%= @plot.planet.name %></p>
+        <p><strong>Description:</strong> <%= @plot.description %></p>
+        <p><strong>Price:</strong> <%= "$#{number_with_precision(@plot.price, precision: 2)}" %></p>
+        <p><strong>Owner:</strong> <%= "#{@plot.user.first_name} #{@plot.user.last_name}" %></p>
+    </div>
+  </div>
   <!-- Edit button -->
   <%= link_to 'Edit', edit_plot_path(@plot), class: 'btn btn-primary' %>
 
@@ -15,3 +17,4 @@
     <%= render "requests/form-request", plot: @plot, request: @request  %>
   </div>
 </div>
+<%# style="background-image: url('<%= cl_image_path @plot.photo.key, heigth:400, crop: :fill %>

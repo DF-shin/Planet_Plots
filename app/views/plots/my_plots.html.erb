@@ -1,0 +1,33 @@
+<!-- app/views/plots/my_plots.html.erb -->
+<div class="banner-index my-plots-banner">
+  <div class="container">
+    <h1>My Plots</h1>
+    <p>Here are your interstellar properties</p>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <div class="cards-container">
+    <% @plots.each do |plot| %>
+      <div class="card-product my-4">
+        <% if plot.photo.attached? %>
+          <%= link_to image_tag(plot.photo, class: "card-img-top"), plot_path(plot) %>
+        <% else %>
+          <%= link_to image_tag('galaxy.jpg', class: "card-img-top"), plot_path(plot) %>
+        <% end %>
+        <div class="card-product-infos">
+          <h2 class="text-primary"><%= plot.name %></h2>
+          <p class="fst-italic"><%= plot.planet.name %></p>
+          <p><%= plot.description %></p>
+          <p><strong>Price:</strong> $<%= plot.price %></p>
+        </div>
+      </div>
+    <% end %>
+    <!-- Invisible flex items to ensure alignment -->
+    <div class="card-product invisible-card"></div>
+    <div class="card-product invisible-card"></div>
+    <div class="card-product invisible-card"></div>
+    <div class="card-product invisible-card"></div>
+    <!-- Add as many as needed based on the maximum number of items per row -->
+  </div>
+</div>

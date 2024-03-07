@@ -1,13 +1,13 @@
-<div class="banner-index" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('planets.jpg') %>);">
+<!-- app/views/plots/index.html.erb -->
+<div class="banner-index index-banner">
   <div class="container">
     <h1>Welcome to <strong>Planet Plots</strong></h1>
-    <p>Launch into the <strong>Interstellar</strong> property market </p>
+    <p>Launch into the <strong>Interstellar</strong> property market</p>
   </div>
 </div>
 
-
-<div class="container d-flex">
-  <div class="row justify-content-end">
+<div class="container mt-4">
+  <div class="cards-container">
     <% @plots.each do |plot| %>
       <div class="col-6 col-md-4 col-lg-3" id="columns" data-controller="insert-in-list">
         <div class="card-product my-4">
@@ -31,9 +31,14 @@
               <% end %>
             </div>
           </div>
+
         </div>
       </div>
     <% end %>
+    <div class="card-product invisible-card"></div>
+    <div class="card-product invisible-card"></div>
+    <div class="card-product invisible-card"></div>
+    <div class="card-product invisible-card"></div>
   </div>
 </div>
 
