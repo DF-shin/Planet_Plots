@@ -71,6 +71,10 @@ class PlotsController < ApplicationController
     end
   end
 
+  def my_plots
+    @plots = current_user.plots # Assuming you have an association set up
+  end
+
 
   private
 
