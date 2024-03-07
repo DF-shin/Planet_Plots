@@ -1,0 +1,12 @@
+.notice-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #416F7E; /* Background color for the notice popup */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px white; /* Add a shadow for depth */
+  z-index: 10000; /* Ensure it's above other content */
+  display: none;
+  color: white
+}
