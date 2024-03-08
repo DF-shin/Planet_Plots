@@ -7,7 +7,11 @@
       <%= render "requests/form-request", plot: @plot, request: @request%>
     <% end %>
   </div>
-  <div class="plot-show-card d-flex align-items-center my-2" style="background-image: url('<%= cl_image_path @plot.photo.key%>')">
+  <% if @plot.photo.attached? %>
+    <div class="plot-show-card d-flex align-items-center my-2" style="background-image: url('<%= cl_image_path @plot.photo.key%>')">
+  <% else %>
+    <div class="plot-show-card d-flex align-items-center my-2" style="background-image: url('<%= asset_path('galaxy.jpg')%>')">
+  <% end %>
     <div class="py-5 text-white flex-grow-1 px-5 fs-4" id="plot-show">
       <p><strong>Name:</strong> <%= @plot.name %></p>
       <p><strong>Planet:</strong> <%= @plot.planet.name %></p>

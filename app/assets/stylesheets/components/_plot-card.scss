@@ -73,7 +73,8 @@ $container-padding: 15px;
 .cards-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around; /* Adjusts to space items evenly */
+  // align-items: center;
+  justify-content: flex-start; /* Adjusts to space items evenly */
   gap: $card-gap;
   width: 100%;
 }
