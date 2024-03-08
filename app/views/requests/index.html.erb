@@ -8,7 +8,7 @@
         <% else %>
           <h4 class="text-white bg-secondary p-2">You want to buy:</h4>
           <% @requests.each do |request| %>
-            <div class="request-card d-flex p-2 m-3 border-bottom">
+            <div class="request-card d-flex pb-3 mt-3 border-bottom border-warning">
               <%= link_to request_path(request) do %>
                 <% if request.plot.photo.attached? %>
                   <%= cl_image_tag(request.plot.photo.key, width:"100", height:80) %>
@@ -18,7 +18,7 @@
               <% end %>
               <div class="ms-2 flex-grow-1">
                 <p class="text-primary"><strong><%= request.plot.name %></strong></p>
-                <p><%= request.plot.user.first_name %></p>
+                <p><strong>Owner: </strong><%= request.plot.user.first_name %></p>
                 <%= render 'status', request: request %>
               </div>
               <% if request.status == 'pending' %>
@@ -38,7 +38,7 @@
         <% else %>
           <h4 class="text-white bg-secondary p-2">Others want to buy yours:</h4>
           <% @requests_as_owner.each do |request| %>
-            <div class="request-card d-flex p-2 m-3 border-bottom">
+            <div class="request-card d-flex pb-3 mt-3 border-bottom border-warning">
               <%= link_to request_path(request) do %>
                 <% if request.plot.photo.attached? %>
                   <%= cl_image_tag(request.plot.photo.key, width:"100", height:80) %>
@@ -48,7 +48,7 @@
               <% end %>
               <div class="ms-2 flex-grow-1">
                 <p class="text-primary"><strong><%= request.plot.name %></strong></p>
-                <p><%= request.user.first_name %></p>
+                <p><strong>Buyer: </strong><%= request.user.first_name %></p>
                 <%= render 'status', request: request %>
               </div>
               <% if request.status == 'pending' %>

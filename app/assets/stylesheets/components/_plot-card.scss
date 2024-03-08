@@ -63,7 +63,7 @@ $container-padding: 15px;
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  // align-items: center;
   max-width: $container-max-width;
   margin: auto;
   padding: 0 $container-padding;

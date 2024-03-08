@@ -37,15 +37,15 @@
       border-radius: 4px;
       border: 1px solid #ccc;
     }
-    .btn {
+    /* .btn {
       background-color: #0056b3;
       color: white;
       padding: 10px 15px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      display: inline-block; /* Adjust as per layout needs */
-    }
+      display: inline-block;
+    } */
     .btn:hover {
       background-color: #004095;
     }
@@ -81,8 +81,9 @@
         <%= f.select :planet_id, Planet.all.map { |p| [p.name, p.id] }, { include_blank: 'Select a planet or type to add a new one' }, { id: 'plot_planet_id', class: 'select2-enable' } %>
       </div>
 
-      <%= f.submit 'Update Plot', class: "btn" %>
+      <%= f.submit 'Update Plot', class: "btn btn-primary col-2" %>
     <% end %>
+      <%= button_to 'Cancel', plot_path(@plot), method: :get, class: 'btn btn-secondary col-2 mt-2' %>
   </div>
 
   <script>
