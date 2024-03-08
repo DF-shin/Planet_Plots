@@ -5,44 +5,23 @@ html, body {
 }
 
 /* Global settings */
-$container-max-width: 1200px;
-$card-gap: 20px;
-$container-padding: 15px;
+$myplots-container-max-width: 1200px;
+$myplots-card-gap: 20px;
+$myplots-container-padding: 15px;
 
 /* Remaining SCSS */
 /* Banner styling */
-.banner-index {
+.myplots-banner-index {
   background-size: cover;
-  background-position: center;
   color: white;
   padding: 50px 0;
-  .container {
+  .myplots-container {
     text-align: center;
   }
 }
-// .banner-index {
-//   background-size: cover;
-//   background-position: center;
-//   padding: 50px 0;
-
-//   h1 {
-//     margin: 0;
-//     color: white;
-//     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-//     font-size: 32px;
-//     font-weight: bold;
-//   }
-
-//   p{
-//     font-size: 20px;
-//   color: white;
-//   opacity: .7;
-//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-//   }
-// }
 
 /* My Plots Banner */
-.my-plots-banner {
+.myplots-my-plots-banner {
   background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
               url('galax.jpg') no-repeat center center;
   background-size: cover; /* Adjust as needed */
@@ -50,7 +29,7 @@ $container-padding: 15px;
 }
 
 /* Index Banner */
-.index-banner {
+.myplots-index-banner {
   background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), asset-url('planets.jpg') no-repeat center center;
 }
 
@@ -60,17 +39,17 @@ $container-padding: 15px;
 }
 
 /* Container styling */
-.container {
+.myplots-container {
   display: flex;
   flex-direction: column;
-  // align-items: center;
+  align-items: center;
   max-width: $container-max-width;
   margin: auto;
   padding: 0 $container-padding;
 }
 
 /* Cards container */
-.cards-container {
+.myplots-cards-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around; /* Adjusts to space items evenly */
@@ -79,23 +58,26 @@ $container-padding: 15px;
 }
 
 /* Individual Cards */
-.card-product {
-  // flex: 0 1 250px; // Fixed flex-basis, allowing shrinking but not growth beyond 220px
+.myplots-card-product {
+  flex: 0 1 250px; // Fixed flex-basis, allowing shrinking but not growth beyond 220px
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: $card-gap;
-
-  .card-img-top {
+  &:hover {
+    transform: scale(1.05);
+  }
+  .myplots-card-img-top {
     width: 100%;
+    height: auto;
     object-fit: cover;
   }
-  .card-product-infos {
+  .myplots-card-product-infos {
     padding: 16px;
   }
 }
 
 /* Invisible Cards */
-.invisible-card {
+.myplots-invisible-card {
   visibility: hidden;
   height: 0;
   margin: 0;
@@ -105,13 +87,13 @@ $container-padding: 15px;
 
 /* Responsive Adjustments */
 @media only screen and (max-width: 768px) {
-  .card-product {
+  .myplots-card-product {
     flex: 0 1 calc(50% - #{$card-gap});
   }
 }
 
 @media only screen and (max-width: 480px) {
-  .card-product {
+  .myplots-card-product {
     flex: 0 1 100%;
   }
 }
