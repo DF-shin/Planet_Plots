@@ -1,0 +1,47 @@
+// Base variables for visibility and design
+$footer-padding: 20px 50px; // Uniform padding around the footer content
+$footer-background-color: rgba(255, 255, 255, 0.8); // Semi-transparent white
+$text-color: #000; // Black text color for visibility
+$link-color: #000; // Black link color for consistency
+$link-opacity: 0.7; // Slightly lower opacity for a subtle look
+$link-hover-opacity: 1; // Full opacity on hover for emphasis
+$heart-color: #FF0000; // Bright red for the heart icon for visibility
+$border-radius: 10px; // Rounded corners for aesthetic
+$box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+
+.footer {
+  background-color: $footer-background-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; // Centers content vertically
+  padding: $footer-padding;
+  color: $text-color;
+  border-radius: $border-radius;
+  margin: 20px auto;
+  width: fit-content; // Adjusts width to fit the content
+  box-shadow: $box-shadow;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px; // Adjust top margin to balance spacing if needed
+  margin-bottom: 10px; // Ensure this is equal to or greater than top margin if additional spacing needed
+
+  a {
+    color: $link-color;
+    opacity: $link-opacity;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 0 10px;
+
+    &:hover {
+      opacity: $link-hover-opacity;
+    }
+  }
+
+  .fa-heart {
+    color: $heart-color;
+  }
+}
