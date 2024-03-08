@@ -16,8 +16,26 @@
 
   <body>
     <%= render "layouts/navbar" %>
-    <%# <p class="notice"><%= notice %>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="content">
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
+    <script>
+      // JavaScript/jQuery for controlling notice popup
+      $(document).ready(function() {
+        var noticeText = "<%= notice %>".trim();
+        if (noticeText !== "") {
+          var noticePopup = $("<div class='notice-popup'></div>").text(noticeText);
+          $("body").append(noticePopup);
+          noticePopup.fadeIn();
+          setTimeout(function() {
+            noticePopup.fadeOut(function() {
+              $(this).remove();
+            });
+          }, 5000); // Adjust the timeout duration (in milliseconds) as needed
+        }
+      });
+    </script>
   </body>
+</html>
 </html>
