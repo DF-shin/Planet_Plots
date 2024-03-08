@@ -15,7 +15,7 @@
       <p><strong>Price:</strong> <%= "$#{number_with_precision(@plot.price, precision: 2)}" %></p>
       <p><strong>Owner:</strong> <%= "#{@plot.user.first_name} #{@plot.user.last_name}" %></p>
       <p><strong>Buyer:</strong> <%= "#{@request.user.first_name} #{@request.user.last_name}" %></p>
-      <p><strong>Request reated at:</strong> <%= @request.created_at.to_date %> <span class='fst-italic text-secondary'>(<%= @days %> days ago)</span></p>
+      <p><strong>Request reated at:</strong> <%= @request.created_at.to_date %> <span class='fst-italic text-warning'>(<%= @days %> days ago)</span></p>
       <p><strong>Request status:</strong> <%= @request.status.nil? ? 'Pending...' : @request.status.capitalize %></p>
     </div>
   </div>
