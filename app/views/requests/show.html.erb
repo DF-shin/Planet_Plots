@@ -5,15 +5,18 @@
       <%= render 'buttons_row', request: @request %>
     <% end %>
   </div>
-  <p><strong>Name:</strong> <%= @plot.name %></p>
-  <p><strong>Planet:</strong> <%= @plot.planet.name %></p>
-  <p><strong>Description:</strong> <%= @plot.description %></p>
-  <p><strong>Price:</strong> <%= "$#{number_with_precision(@plot.price, precision: 2)}" %></p>
-  <p><strong>Owner:</strong> <%= "#{@plot.user.first_name} #{@plot.user.last_name}" %></p>
-  <p><strong>Buyer:</strong> <%= "#{@request.user.first_name} #{@request.user.last_name}" %></p>
-  <p><strong>Request reated at:</strong> <%= @request.created_at.to_date %> <span class='fst-italic text-secondary'>(<%= @days %> days ago)</span></p>
-  <p><strong>Request status:</strong> <%= @request.status.nil? ? 'Pending...' : @request.status.capitalize %></p>
+  <%= link_to 'Back', requests_path, class: 'btn btn-secondary col-1' %>
 
-  <%= link_to 'Back', requests_path %>
-
+  <div class="plot-show-card d-flex align-items-center my-2" style="background-image: url('<%= cl_image_path @plot.photo.key%>')">
+    <div class="py-5 text-white flex-grow-1 px-5 fs-4" id="plot-show">
+      <p><strong>Name:</strong> <%= @plot.name %></p>
+      <p><strong>Planet:</strong> <%= @plot.planet.name %></p>
+      <p><strong>Description:</strong> <%= @plot.description %></p>
+      <p><strong>Price:</strong> <%= "$#{number_with_precision(@plot.price, precision: 2)}" %></p>
+      <p><strong>Owner:</strong> <%= "#{@plot.user.first_name} #{@plot.user.last_name}" %></p>
+      <p><strong>Buyer:</strong> <%= "#{@request.user.first_name} #{@request.user.last_name}" %></p>
+      <p><strong>Request reated at:</strong> <%= @request.created_at.to_date %> <span class='fst-italic text-secondary'>(<%= @days %> days ago)</span></p>
+      <p><strong>Request status:</strong> <%= @request.status.nil? ? 'Pending...' : @request.status.capitalize %></p>
+    </div>
+  </div>
 </div>
