@@ -74,7 +74,7 @@ $container-padding: 15px;
   display: flex;
   flex-wrap: wrap;
   // align-items: center;
-  justify-content: flex-start; /* Adjusts to space items evenly */
+  justify-content: space-around; /* Adjusts to space items evenly */
   gap: $card-gap;
   width: 100%;
 }
