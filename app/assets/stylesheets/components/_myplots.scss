@@ -1,0 +1,99 @@
+/* Reset default browser padding and margin */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Global settings */
+$myplots-container-max-width: 1200px;
+$myplots-card-gap: 20px;
+$myplots-container-padding: 15px;
+
+/* Remaining SCSS */
+/* Banner styling */
+.myplots-banner-index {
+  background-size: cover;
+  color: white;
+  padding: 50px 0;
+  .myplots-container {
+    text-align: center;
+  }
+}
+
+/* My Plots Banner */
+.myplots-my-plots-banner {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+              url('galax.jpg') no-repeat center center;
+  background-size: cover; /* Adjust as needed */
+  background-position: center; /* Adjust as needed */
+}
+
+/* Index Banner */
+.myplots-index-banner {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), asset-url('planets.jpg') no-repeat center center;
+}
+
+/* Ensure any global styles or resets are applied */
+* {
+  box-sizing: border-box;
+}
+
+/* Container styling */
+.myplots-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: $container-max-width;
+  margin: auto;
+  padding: 0 $container-padding;
+}
+
+/* Cards container */
+.myplots-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Adjusts to space items evenly */
+  gap: $card-gap;
+  width: 100%;
+}
+
+/* Individual Cards */
+.myplots-card-product {
+  flex: 0 1 250px; // Fixed flex-basis, allowing shrinking but not growth beyond 220px
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: $card-gap;
+  &:hover {
+    transform: scale(1.05);
+  }
+  .myplots-card-img-top {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  .myplots-card-product-infos {
+    padding: 16px;
+  }
+}
+
+/* Invisible Cards */
+.myplots-invisible-card {
+  visibility: hidden;
+  height: 0;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* Responsive Adjustments */
+@media only screen and (max-width: 768px) {
+  .myplots-card-product {
+    flex: 0 1 calc(50% - #{$card-gap});
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .myplots-card-product {
+    flex: 0 1 100%;
+  }
+}
