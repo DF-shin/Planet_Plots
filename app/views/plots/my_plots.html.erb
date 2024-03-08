@@ -6,16 +6,16 @@
   </div>
 </div>
 
-<div class="container mt-4">
-  <div class="cards-container">
+<div class="myplots-container mt-4">
+  <div class="myplots-cards-container">
     <% @plots.each do |plot| %>
       <div class="myplots-card-product my-4">
         <% if plot.photo.attached? %>
-          <%= link_to image_tag(plot.photo, class: "card-img-top", height:140), plot_path(plot) %>
+          <%= link_to image_tag(plot.photo, class: "myplots-card-img-top", height:140), plot_path(plot) %>
         <% else %>
-          <%= link_to image_tag('galax.jpg', class: "card-img-top", height:140), plot_path(plot) %>
+          <%= link_to image_tag('galax.jpg', class: "myplots-card-img-top", height:140), plot_path(plot) %>
         <% end %>
-        <div class="card-product-infos d-flex align-items-start flex-column p-3" style="height: 250px;">
+        <div class="myplots-card-product-infos d-flex align-items-center flex-column p-3" style="height: 250px;">
           <h2 class="text-primary"><%= plot.name %></h2>
           <p class="fst-italic"><%= plot.planet.name %></p>
           <p><%= plot.description %></p>
@@ -23,5 +23,9 @@
         </div>
       </div>
     <% end %>
+    <div class="myplots-card-product myplots-invisible-card"></div>
+    <div class="myplots-card-product myplots-invisible-card"></div>
+    <div class="myplots-card-product myplots-invisible-card"></div>
+    <div class="myplots-card-product myplots-invisible-card"></div>
   </div>
 </div>
